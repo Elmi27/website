@@ -1328,7 +1328,7 @@ form textarea {
 .section-title, .section-subtitle {
   font-weight: 300;
   margin-bottom: 50px;
-  text-align: center;
+  text-align: left;
   display: block; }
 
 .section-title {
@@ -1722,5 +1722,70 @@ form textarea {
       line-height: 20px; }
       .site-footer .footer-navigation a:last-child {
         border-right: none; }
+
+
   .site-footer .colophon {
-    color: #898b8d; }
+    color: #898b8d; 
+  }
+
+  .section-title, .section-subtitle {
+    font-weight: 300;
+    margin-bottom: 50px;
+    text-align: left;
+    display: block; }
+
+    .site-footer .colophon {
+        float: left;
+        padding-top: 0.7em;
+    }
+
+    .section-title, .section-subtitle {
+      text-align: left;
+    }
+
+    .feature-title {
+      text-align: left;
+    }
+
+    .float-right {
+      float: right;
+    }
+
+    .site-footer {
+      border-top: none;
+    }
+
+    .border-r {
+        border-right: 1px solid #ccc;
+    }
+
+    .claim-type {
+      background-color: #f1f1f1;
+      text-align: center;
+      height: 270px;
+    }
+
+    .claim-title {
+      font-size: 2em;
+      line-height: 2em;
+      font-weight: 300;
+      color: #0f75bd;
+      margin-bottom: 0;
+    }
+
+    .contact-form input, .contact-form textarea {
+      margin-top: 10px;
+    }
+
+    .contact-form label {
+      font-size: 1.2em;
+    }
+
+    .font-size {
+      font-size: 2em;
+    }
+
+    .margin-down-none {
+      margin-bottom: 0;
+      margin-top: 1em;
+    }
