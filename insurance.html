@@ -85,7 +85,7 @@
 						<div class="row ">
 							<div class="col-md-3">
 								<a href="#">
-									<div class="claim-type">
+									<div class="claim-type selected">
 										<h3 class="claim-title">Broken</h3>
 										<img src="images/Broken.png" />
 									</div>
@@ -135,10 +135,15 @@
 									<label for="description">Description</label>
 									<textarea id="description" placeholder="Message..."></textarea>
 
-									<div class="custom-file">
-										<input type="file" class="custom-file-input" id="customFile">
-										<label class="custom-file-label" for="customFile">Choose file</label>
+									<div class="custom-file">									
+										<label class="custom-file-label" for="customFile">Upload file</label><br />
+										<p class="file-upload">
+											<span class="file-message">Choose files or drag and drop files here</span>
+										</p>										 
+										<input type="file" class="file-input" accept=".jfif,.jpg,.jpeg,.png,.gif" multiple>
 									  </div>
+
+									  <div id="divImageMediaPreview"></div>
 
 									<p class="text-right">
 										<input type="submit" value="Submit claim">
@@ -168,7 +173,38 @@
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/app.js"></script>
-		
-	</body>
 
+		<script>
+			$(document).on('change', '.file-input', function() {
+
+				var filesCount = $(this)[0].files.length;
+				var textbox = $(this).prev();
+
+				if (filesCount === 1) {
+				var fileName = $(this).val().split('\\').pop();
+					textbox.text(fileName);
+				} else {
+					textbox.text(filesCount + ' files selected');
+				}
+
+				if (typeof (FileReader) != "undefined") {
+					var dvPreview = $("#divImageMediaPreview");
+					dvPreview.html("");
+					$($(this)[0].files).each(function () {
+						var file = $(this);
+						var reader = new FileReader();
+						reader.onload = function (e) {
+							var img = $("<img />");
+							img.attr("style", "width: 150px; height:100px; padding: 10px");
+							img.attr("src", e.target.result);
+							dvPreview.append(img);
+						}
+						reader.readAsDataURL(file[0]);
+					});
+				} else {
+					alert("This browser does not support HTML5 FileReader.");
+				}
+			});
+		</script>		
+	</body>
 </html>
