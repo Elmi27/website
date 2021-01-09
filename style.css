@@ -1763,6 +1763,7 @@ form textarea {
       background-color: #f1f1f1;
       text-align: center;
       height: 270px;
+      border-radius: 10px;
     }
 
     .claim-title {
@@ -1788,4 +1789,13 @@ form textarea {
     .margin-down-none {
       margin-bottom: 0;
       margin-top: 1em;
+    }
+
+    .selected {
+      background-color: #0f75bd;     
+      border-radius: 10px; 
+    }
+
+    .selected > .claim-title {
+      color: #fff;
     }
